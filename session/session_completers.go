@@ -3,7 +3,7 @@ package session
 import (
 	"strings"
 
-	"github.com/Asif-Iqbal-Gazibettercap/network"
+	"github.com/Asif-Iqbal-Gazi/bettercap/network"
 )
 
 func prefixMatches(prefix, what string) bool {

@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/Asif-Iqbal-Gazigatt"
+	"github.com/Asif-Iqbal-Gazi/gatt"
 )
 
 type BLECharacteristic struct {

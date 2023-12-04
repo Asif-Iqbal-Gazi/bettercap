@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Asif-Iqbal-Gazibettercap/session"
+	"github.com/Asif-Iqbal-Gazi/bettercap/session"
 )
 
 type CertConfig struct {

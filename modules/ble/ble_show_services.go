@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Asif-Iqbal-Gazibettercap/network"
-	"github.com/Asif-Iqbal-Gazigatt"
+	"github.com/Asif-Iqbal-Gazi/bettercap/network"
+	"github.com/Asif-Iqbal-Gazi/gatt"
 
 	"github.com/evilsocket/islazy/tui"
 )

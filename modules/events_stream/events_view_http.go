@@ -11,8 +11,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/Asif-Iqbal-Gazibettercap/modules/net_sniff"
-	"github.com/Asif-Iqbal-Gazibettercap/session"
+	"github.com/Asif-Iqbal-Gazi/bettercap/modules/net_sniff"
+	"github.com/Asif-Iqbal-Gazi/bettercap/session"
 
 	"github.com/evilsocket/islazy/tui"
 )

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Asif-Iqbal-Gazirecording"
+	"github.com/Asif-Iqbal-Gazi/recording"
 
 	"github.com/evilsocket/islazy/fs"
 )

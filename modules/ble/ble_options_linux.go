@@ -1,8 +1,8 @@
 package ble
 
 import (
-	"github.com/Asif-Iqbal-Gazigatt"
-	// "github.com/Asif-Iqbal-Gazigatt/linux/cmd"
+	"github.com/Asif-Iqbal-Gazi/gatt"
+	// "github.com/Asif-Iqbal-Gazi/gatt/linux/cmd"
 )
 
 var defaultBLEClientOptions = []gatt.Option{

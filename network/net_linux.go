@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Asif-Iqbal-Gazibettercap/core"
+	"github.com/Asif-Iqbal-Gazi/bettercap/core"
 )
 
 // see Windows version to understand why ....
@@ -123,7 +123,7 @@ func iwSupportedFrequencies(iface string) ([]int, error) {
 }
 
 func GetSupportedFrequencies(iface string) ([]int, error) {
-	// give priority to iwlist because of https://github.com/Asif-Iqbal-Gazibettercap/issues/881
+	// give priority to iwlist because of https://github.com/Asif-Iqbal-Gazi/bettercap/issues/881
 	if core.HasBinary("iwlist") {
 		return iwlistSupportedFrequencies(iface)
 	} else if core.HasBinary("iw") {

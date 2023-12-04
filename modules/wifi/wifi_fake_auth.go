@@ -3,8 +3,8 @@ package wifi
 import (
 	"bytes"
 	"fmt"
-	"github.com/Asif-Iqbal-Gazibettercap/network"
-	"github.com/Asif-Iqbal-Gazibettercap/packets"
+	"github.com/Asif-Iqbal-Gazi/bettercap/network"
+	"github.com/Asif-Iqbal-Gazi/bettercap/packets"
 	"net"
 )
 

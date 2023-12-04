@@ -1,4 +1,4 @@
-module github.com/Asif-Iqbal-Gazibettercap
+module github.com/Asif-Iqbal-Gazi/bettercap
 
 go 1.16
 
@@ -7,10 +7,10 @@ require (
 	github.com/adrianmo/go-nmea v1.3.0
 	github.com/antchfx/jsonquery v1.1.4
 	github.com/antchfx/xpath v1.2.0 // indirect
-	github.com/Asif-Iqbal-Gazigatt v0.0.0-20210514133428-df6e615f2f67
-	github.com/Asif-Iqbal-Gazinrf24 v0.0.0-20190219153547-aa37e6d0e0eb
-	github.com/Asif-Iqbal-Gazireadline v0.0.0-20210228151553-655e48bcb7bf
-	github.com/Asif-Iqbal-Gazirecording v0.0.0-20190408083647-3ce1dcf032e3
+	github.com/Asif-Iqbal-Gazi/gatt v0.0.0-20210514133428-df6e615f2f67
+	github.com/Asif-Iqbal-Gazi/nrf24 v0.0.0-20190219153547-aa37e6d0e0eb
+	github.com/Asif-Iqbal-Gazi/readline v0.0.0-20210228151553-655e48bcb7bf
+	github.com/Asif-Iqbal-Gazi/recording v0.0.0-20190408083647-3ce1dcf032e3
 	github.com/chifflier/nfqueue-go v0.0.0-20170228160439-61ca646babef
 	github.com/chzyer/logex v1.1.10 // indirect
 	github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1 // indirect

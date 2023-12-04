@@ -2,13 +2,13 @@ package net_recon
 
 import (
 	"fmt"
-	"github.com/Asif-Iqbal-Gazibettercap/modules/syn_scan"
+	"github.com/Asif-Iqbal-Gazi/bettercap/modules/syn_scan"
 	"sort"
 	"strings"
 	"time"
 
-	"github.com/Asif-Iqbal-Gazibettercap/network"
-	"github.com/Asif-Iqbal-Gazibettercap/packets"
+	"github.com/Asif-Iqbal-Gazi/bettercap/network"
+	"github.com/Asif-Iqbal-Gazi/bettercap/packets"
 
 	"github.com/dustin/go-humanize"
 

@@ -1,7 +1,7 @@
 # build stage
 FROM golang:1.16-alpine3.15 AS build-env
 
-ENV SRC_DIR $GOPATH/src/github.com/Asif-Iqbal-Gazibettercap
+ENV SRC_DIR $GOPATH/src/github.com/Asif-Iqbal-Gazi/bettercap
 
 RUN apk add --no-cache ca-certificates
 RUN apk add --no-cache bash iptables wireless-tools build-base libpcap-dev libusb-dev linux-headers libnetfilter_queue-dev git
@@ -12,13 +12,13 @@ RUN make
 
 # get caplets
 RUN mkdir -p /usr/local/share/bettercap
-RUN git clone https://github.com/Asif-Iqbal-Gazicaplets /usr/local/share/bettercap/caplets
+RUN git clone https://github.com/Asif-Iqbal-Gazi/caplets /usr/local/share/bettercap/caplets
 
 # final stage
 FROM alpine:3.15
 RUN apk add --no-cache ca-certificates
 RUN apk add --no-cache bash iproute2 libpcap libusb-dev libnetfilter_queue wireless-tools
-COPY --from=build-env /go/src/github.com/Asif-Iqbal-Gazibettercap/bettercap /app/
+COPY --from=build-env /go/src/github.com/Asif-Iqbal-Gazi/bettercap/bettercap /app/
 COPY --from=build-env /usr/local/share/bettercap/caplets /app/
 WORKDIR /app
 

@@ -5,8 +5,8 @@ import (
 	"net"
 	"regexp"
 
-	"github.com/Asif-Iqbal-Gazibettercap/packets"
-	"github.com/Asif-Iqbal-Gazibettercap/session"
+	"github.com/Asif-Iqbal-Gazi/bettercap/packets"
+	"github.com/Asif-Iqbal-Gazi/bettercap/session"
 
 	"github.com/google/gopacket/layers"
 

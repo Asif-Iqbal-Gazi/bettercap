@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/Asif-Iqbal-Gazibettercap/packets"
+	"github.com/Asif-Iqbal-Gazi/bettercap/packets"
 )
 
 func (mod *Prober) sendProbeUPNP(from net.IP, from_hw net.HardwareAddr) {

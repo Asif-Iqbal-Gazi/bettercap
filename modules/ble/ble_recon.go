@@ -8,11 +8,11 @@ import (
 	golog "log"
 	"time"
 
-	"github.com/Asif-Iqbal-Gazibettercap/modules/utils"
-	"github.com/Asif-Iqbal-Gazibettercap/network"
-	"github.com/Asif-Iqbal-Gazibettercap/session"
+	"github.com/Asif-Iqbal-Gazi/bettercap/modules/utils"
+	"github.com/Asif-Iqbal-Gazi/bettercap/network"
+	"github.com/Asif-Iqbal-Gazi/bettercap/session"
 
-	"github.com/Asif-Iqbal-Gazigatt"
+	"github.com/Asif-Iqbal-Gazi/gatt"
 
 	"github.com/evilsocket/islazy/str"
 )

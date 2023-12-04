@@ -4,7 +4,7 @@ import (
 	"encoding/asn1"
 	"net"
 
-	"github.com/Asif-Iqbal-Gazibettercap/packets"
+	"github.com/Asif-Iqbal-Gazi/bettercap/packets"
 
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"

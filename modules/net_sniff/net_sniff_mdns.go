@@ -4,8 +4,8 @@ import (
 	"net"
 	"strings"
 
-	"github.com/Asif-Iqbal-Gazibettercap/packets"
-	"github.com/Asif-Iqbal-Gazibettercap/session"
+	"github.com/Asif-Iqbal-Gazi/bettercap/packets"
+	"github.com/Asif-Iqbal-Gazi/bettercap/session"
 
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"

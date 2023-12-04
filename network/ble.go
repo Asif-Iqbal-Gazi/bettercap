@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Asif-Iqbal-Gazigatt"
+	"github.com/Asif-Iqbal-Gazi/gatt"
 
 	"github.com/evilsocket/islazy/data"
 )

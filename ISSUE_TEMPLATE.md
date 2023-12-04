@@ -1,6 +1,6 @@
 # Prerequisites
 
-Please, before creating this issue make sure that you read the [README](https://github.com/Asif-Iqbal-Gazibettercap/blob/master/README.md), that you are running the [latest stable version](https://github.com/Asif-Iqbal-Gazibettercap/releases) and that you already searched [other issues](https://github.com/Asif-Iqbal-Gazibettercap/issues?q=is%3Aopen+is%3Aissue+label%3Abug) to see if your problem or request was already reported.
+Please, before creating this issue make sure that you read the [README](https://github.com/Asif-Iqbal-Gazi/bettercap/blob/master/README.md), that you are running the [latest stable version](https://github.com/Asif-Iqbal-Gazi/bettercap/releases) and that you already searched [other issues](https://github.com/Asif-Iqbal-Gazi/bettercap/issues?q=is%3Aopen+is%3Aissue+label%3Abug) to see if your problem or request was already reported.
 
 ! PLEASE REMOVE THIS PART AND LEAVE ONLY THE FOLLOWING SECTIONS IN YOUR REPORT !
 ---

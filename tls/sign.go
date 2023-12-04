@@ -11,7 +11,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/Asif-Iqbal-Gazibettercap/log"
+	"github.com/Asif-Iqbal-Gazi/bettercap/log"
 )
 
 func getServerCertificate(host string, port int) *x509.Certificate {

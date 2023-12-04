@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/Asif-Iqbal-Gazibettercap/core"
+	"github.com/Asif-Iqbal-Gazi/bettercap/core"
 	"github.com/evilsocket/islazy/str"
 )
 

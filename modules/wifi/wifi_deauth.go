@@ -7,8 +7,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/Asif-Iqbal-Gazibettercap/network"
-	"github.com/Asif-Iqbal-Gazibettercap/packets"
+	"github.com/Asif-Iqbal-Gazi/bettercap/network"
+	"github.com/Asif-Iqbal-Gazi/bettercap/packets"
 )
 
 func (mod *WiFiModule) injectPacket(data []byte) {

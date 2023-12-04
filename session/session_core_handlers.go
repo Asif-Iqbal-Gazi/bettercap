@@ -12,10 +12,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Asif-Iqbal-Gazibettercap/core"
-	"github.com/Asif-Iqbal-Gazibettercap/network"
+	"github.com/Asif-Iqbal-Gazi/bettercap/core"
+	"github.com/Asif-Iqbal-Gazi/bettercap/network"
 
-	"github.com/Asif-Iqbal-Gazireadline"
+	"github.com/Asif-Iqbal-Gazi/readline"
 	"github.com/evilsocket/islazy/str"
 	"github.com/evilsocket/islazy/tui"
 )

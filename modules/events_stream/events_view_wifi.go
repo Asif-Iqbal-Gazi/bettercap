@@ -2,12 +2,12 @@ package events_stream
 
 import (
 	"fmt"
-	"github.com/Asif-Iqbal-Gazibettercap/modules/wifi"
+	"github.com/Asif-Iqbal-Gazi/bettercap/modules/wifi"
 	"io"
 	"strings"
 
-	"github.com/Asif-Iqbal-Gazibettercap/network"
-	"github.com/Asif-Iqbal-Gazibettercap/session"
+	"github.com/Asif-Iqbal-Gazi/bettercap/network"
+	"github.com/Asif-Iqbal-Gazi/bettercap/session"
 
 	"github.com/evilsocket/islazy/tui"
 )

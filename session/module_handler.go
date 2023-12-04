@@ -10,7 +10,7 @@ import (
 	"github.com/evilsocket/islazy/str"
 	"github.com/evilsocket/islazy/tui"
 
-	"github.com/Asif-Iqbal-Gazireadline"
+	"github.com/Asif-Iqbal-Gazi/readline"
 )
 
 const (

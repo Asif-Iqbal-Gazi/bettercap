@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Asif-Iqbal-Gazibettercap/caplets"
-	"github.com/Asif-Iqbal-Gazibettercap/session"
+	"github.com/Asif-Iqbal-Gazi/bettercap/caplets"
+	"github.com/Asif-Iqbal-Gazi/bettercap/session"
 
 	"github.com/dustin/go-humanize"
 

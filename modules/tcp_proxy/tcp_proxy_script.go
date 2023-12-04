@@ -4,8 +4,8 @@ import (
 	"net"
 	"strings"
 
-	"github.com/Asif-Iqbal-Gazibettercap/log"
-	"github.com/Asif-Iqbal-Gazibettercap/session"
+	"github.com/Asif-Iqbal-Gazi/bettercap/log"
+	"github.com/Asif-Iqbal-Gazi/bettercap/session"
 
 	"github.com/evilsocket/islazy/plugin"
 

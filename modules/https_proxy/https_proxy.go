@@ -1,9 +1,9 @@
 package https_proxy
 
 import (
-	"github.com/Asif-Iqbal-Gazibettercap/modules/http_proxy"
-	"github.com/Asif-Iqbal-Gazibettercap/session"
-	"github.com/Asif-Iqbal-Gazibettercap/tls"
+	"github.com/Asif-Iqbal-Gazi/bettercap/modules/http_proxy"
+	"github.com/Asif-Iqbal-Gazi/bettercap/session"
+	"github.com/Asif-Iqbal-Gazi/bettercap/tls"
 
 	"github.com/evilsocket/islazy/fs"
 	"github.com/evilsocket/islazy/str"

@@ -12,7 +12,7 @@ import (
 const (
 	EnvVarName     = "CAPSPATH"
 	Suffix         = ".cap"
-	InstallArchive = "https://github.com/Asif-Iqbal-Gazicaplets/archive/master.zip"
+	InstallArchive = "https://github.com/Asif-Iqbal-Gazi/caplets/archive/master.zip"
 )
 
 func getDefaultInstallBase() string {

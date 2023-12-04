@@ -1,7 +1,7 @@
 package session
 
 import (
-	"github.com/Asif-Iqbal-Gazibettercap/js"
+	"github.com/Asif-Iqbal-Gazi/bettercap/js"
 	"github.com/robertkrimen/otto"
 )
 

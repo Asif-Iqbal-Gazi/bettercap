@@ -32,7 +32,7 @@ finish: &finish
 cross_deps: &cross_deps
   <<: *linux_deps
   before_install:
-    - wget --show-progress -qcO "qemu.deb" "https://github.com/Asif-Iqbal-Gazibuildutils/raw/main/qemu-user-static_5.2_dfsg-9_amd64.deb"
+    - wget --show-progress -qcO "qemu.deb" "https://github.com/Asif-Iqbal-Gazi/buildutils/raw/main/qemu-user-static_5.2_dfsg-9_amd64.deb"
     - sudo dpkg -i "qemu.deb"
 
 normal_install: &normal_install
