@@ -10,7 +10,7 @@ import (
 	"github.com/Asif-Iqbal-Gazi/bettercap/session"
 	"github.com/Asif-Iqbal-Gazi/bettercap/tls"
 
-	"github.com/Asif-Iqbal-Gazi/recording"
+	"github.com/bettercap/recording"
 
 	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"

@@ -10,7 +10,7 @@ import (
 
 	"github.com/Asif-Iqbal-Gazi/bettercap/caplets"
 
-	"github.com/Asif-Iqbal-Gazi/readline"
+	"github.com/bettercap/readline"
 
 	"github.com/evilsocket/islazy/fs"
 	"github.com/evilsocket/islazy/log"

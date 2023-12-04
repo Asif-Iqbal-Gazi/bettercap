@@ -9,7 +9,7 @@ import (
 	"github.com/Asif-Iqbal-Gazi/bettercap/modules/utils"
 	"github.com/Asif-Iqbal-Gazi/bettercap/session"
 
-	"github.com/Asif-Iqbal-Gazi/nrf24"
+	"github.com/bettercap/nrf24"
 )
 
 type HIDRecon struct {

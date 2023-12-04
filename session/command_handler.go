@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"sync"
 
-	"github.com/Asif-Iqbal-Gazi/readline"
+	"github.com/bettercap/readline"
 )
 
 type CommandHandler struct {

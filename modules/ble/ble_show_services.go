@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	"github.com/Asif-Iqbal-Gazi/bettercap/network"
-	"github.com/Asif-Iqbal-Gazi/gatt"
+	"github.com/bettercap/gatt"
 
 	"github.com/evilsocket/islazy/tui"
 )

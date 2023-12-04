@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Asif-Iqbal-Gazi/recording"
+	"github.com/bettercap/recording"
 
 	"github.com/evilsocket/islazy/fs"
 )
