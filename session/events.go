@@ -12,6 +12,8 @@ import (
 )
 
 type Event struct {
+	sync.RWMutex
+
 	Tag  string      `json:"tag"`
 	Time time.Time   `json:"time"`
 	Data interface{} `json:"data"`

@@ -21,6 +21,9 @@ const (
 )
 
 func (mod *RestAPI) streamEvent(ws *websocket.Conn, event session.Event) error {
+	event.RLock()
+	defer event.RUnlock()
+
 	msg, err := json.Marshal(event)
 	if err != nil {
 		mod.Error("Error while creating websocket message: %s", err)
