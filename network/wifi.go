@@ -80,7 +80,8 @@ func (w *WiFi) MarshalJSON() ([]byte, error) {
 	for _, ap := range w.aps {
 		doc.AccessPoints = append(doc.AccessPoints, ap)
 	}
-
+	w.RLock()
+	defer w.RUnlock()
 	return json.Marshal(doc)
 }
 

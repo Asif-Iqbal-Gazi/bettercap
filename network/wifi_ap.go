@@ -18,6 +18,8 @@ type AccessPoint struct {
 }
 
 type apJSON struct {
+	sync.RWMutex
+
 	*Station
 	Clients   []*Station `json:"clients"`
 	Handshake bool       `json:"handshake"`
@@ -32,8 +34,8 @@ func NewAccessPoint(essid, bssid string, frequency int, rssi int8, aliases *data
 }
 
 func (ap *AccessPoint) MarshalJSON() ([]byte, error) {
-	ap.RLock()
-	defer ap.RUnlock()
+	// ap.RLock()
+	// defer ap.RUnlock()
 
 	doc := apJSON{
 		Station:   ap.Station,
@@ -44,7 +46,8 @@ func (ap *AccessPoint) MarshalJSON() ([]byte, error) {
 	for _, c := range ap.clients {
 		doc.Clients = append(doc.Clients, c)
 	}
-
+	doc.RLock()
+	defer doc.RUnlock()
 	return json.Marshal(doc)
 }
 
