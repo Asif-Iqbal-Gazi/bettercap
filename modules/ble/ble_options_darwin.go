@@ -1,7 +1,7 @@
 package ble
 
 import (
-	"github.com/bettercap/gatt"
+	"github.com/Asif-Iqbal-Gazigatt"
 )
 
 var defaultBLEClientOptions = []gatt.Option{

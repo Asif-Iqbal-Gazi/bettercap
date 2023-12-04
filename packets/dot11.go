@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"net"
 
-	"github.com/bettercap/bettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
 
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"

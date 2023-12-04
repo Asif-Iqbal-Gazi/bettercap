@@ -2,8 +2,8 @@ package any_proxy
 
 import (
 	"fmt"
-	"github.com/bettercap/bettercap/firewall"
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/firewall"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 	"github.com/evilsocket/islazy/str"
 	"strconv"
 	"strings"

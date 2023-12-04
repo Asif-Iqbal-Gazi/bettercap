@@ -3,11 +3,11 @@ package wifi
 import (
 	"bytes"
 	"fmt"
-	"github.com/bettercap/bettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
 	"net"
 	"path"
 
-	"github.com/bettercap/bettercap/packets"
+	"github.com/Asif-Iqbal-Gazibettercap/packets"
 
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
@@ -65,7 +65,7 @@ func (mod *WiFiModule) discoverHandshakes(radiotap *layers.RadioTap, dot11 *laye
 
 			//add the ap's station's beacon packet to be saved as part of the handshake cap file
 			//https://github.com/ZerBea/hcxtools/issues/92
-			//https://github.com/bettercap/bettercap/issues/592
+			//https://github.com/Asif-Iqbal-Gazibettercap/issues/592
 
 			if ap.Station.Handshake.Beacon != nil {
 				mod.Debug("adding beacon frame to handshake for %s", apMac)
@@ -133,7 +133,7 @@ func (mod *WiFiModule) discoverHandshakes(radiotap *layers.RadioTap, dot11 *laye
 		}
 	}
 
-	// quick and dirty heuristic, see thread here https://github.com/bettercap/bettercap/issues/810#issuecomment-805145392
+	// quick and dirty heuristic, see thread here https://github.com/Asif-Iqbal-Gazibettercap/issues/810#issuecomment-805145392
 	if isEAPOL || (dot11.Type.MainType() != layers.Dot11TypeData && dot11.Type.MainType() != layers.Dot11TypeCtrl) {
 		target := (* network.Station)(nil)
 		targetAP := (* network.AccessPoint)(nil)

@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/bettercap/bettercap/core"
-	"github.com/bettercap/bettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/core"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
 
 	"github.com/evilsocket/islazy/fs"
 	"github.com/evilsocket/islazy/str"

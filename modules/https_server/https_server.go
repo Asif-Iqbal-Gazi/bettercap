@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bettercap/bettercap/session"
-	"github.com/bettercap/bettercap/tls"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/tls"
 
 	"github.com/evilsocket/islazy/fs"
 	"github.com/evilsocket/islazy/tui"

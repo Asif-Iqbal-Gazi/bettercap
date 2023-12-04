@@ -6,10 +6,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bettercap/bettercap/modules/utils"
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/modules/utils"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 
-	"github.com/bettercap/nrf24"
+	"github.com/Asif-Iqbal-Gazinrf24"
 )
 
 type HIDRecon struct {

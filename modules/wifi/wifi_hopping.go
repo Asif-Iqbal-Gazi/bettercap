@@ -4,7 +4,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/bettercap/bettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
 )
 
 func (mod *WiFiModule) isInterfaceConnected() bool {

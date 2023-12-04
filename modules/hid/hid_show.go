@@ -4,7 +4,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/bettercap/bettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
 
 	"github.com/dustin/go-humanize"
 

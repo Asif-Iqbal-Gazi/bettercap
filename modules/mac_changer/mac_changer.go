@@ -6,9 +6,9 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/bettercap/bettercap/core"
-	"github.com/bettercap/bettercap/network"
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/core"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 
 	"github.com/evilsocket/islazy/tui"
 )

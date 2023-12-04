@@ -2,13 +2,13 @@ package ndp_spoof
 
 import (
 	"fmt"
-	"github.com/bettercap/bettercap/packets"
+	"github.com/Asif-Iqbal-Gazibettercap/packets"
 	"github.com/evilsocket/islazy/str"
 	"net"
 	"sync"
 	"time"
 
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 )
 
 type NDPSpoofer struct {

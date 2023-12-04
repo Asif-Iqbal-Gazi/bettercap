@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/bettercap/bettercap/core"
-	"github.com/bettercap/bettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/core"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
 )
 
 type WindowsFirewall struct {

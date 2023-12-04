@@ -6,10 +6,10 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/bettercap/bettercap/caplets"
-	"github.com/bettercap/bettercap/core"
-	"github.com/bettercap/bettercap/network"
-	"github.com/bettercap/bettercap/packets"
+	"github.com/Asif-Iqbal-Gazibettercap/caplets"
+	"github.com/Asif-Iqbal-Gazibettercap/core"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/packets"
 )
 
 var flagNames = []string{

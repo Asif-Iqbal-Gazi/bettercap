@@ -3,7 +3,7 @@
 package network
 
 import (
-	"github.com/bettercap/bettercap/routing"
+	"github.com/Asif-Iqbal-Gazibettercap/routing"
 )
 
 func FindGateway(iface *Endpoint) (*Endpoint, error) {

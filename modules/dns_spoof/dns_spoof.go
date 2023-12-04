@@ -7,10 +7,10 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/bettercap/bettercap/log"
-	"github.com/bettercap/bettercap/network"
-	"github.com/bettercap/bettercap/packets"
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/log"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/packets"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
@@ -195,7 +195,7 @@ func DnsReply(s *session.Session, TTL uint32, pkt gopacket.Packet, peth *layers.
 	for _, q := range req.Questions {
 		// do not include types we can't handle and that are not needed
 		// for successful spoofing anyway
-		// ref: https://github.com/bettercap/bettercap/issues/843
+		// ref: https://github.com/Asif-Iqbal-Gazibettercap/issues/843
 		if q.Type.String() == "Unknown" {
 			continue
 		}

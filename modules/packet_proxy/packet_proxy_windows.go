@@ -1,7 +1,7 @@
 package packet_proxy
 
 import (
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 )
 
 type PacketProxy struct {

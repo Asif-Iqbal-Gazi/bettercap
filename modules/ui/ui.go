@@ -11,7 +11,7 @@ import (
 	"regexp"
 	"runtime"
 
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 
 	"github.com/google/go-github/github"
 

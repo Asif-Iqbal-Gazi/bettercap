@@ -8,10 +8,10 @@ import (
 
 	"runtime"
 
-	"github.com/bettercap/bettercap/core"
-	"github.com/bettercap/bettercap/log"
-	"github.com/bettercap/bettercap/modules"
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/core"
+	"github.com/Asif-Iqbal-Gazibettercap/log"
+	"github.com/Asif-Iqbal-Gazibettercap/modules"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 
 	"github.com/evilsocket/islazy/str"
 	"github.com/evilsocket/islazy/tui"

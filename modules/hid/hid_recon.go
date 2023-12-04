@@ -3,7 +3,7 @@ package hid
 import (
 	"time"
 
-	"github.com/bettercap/nrf24"
+	"github.com/Asif-Iqbal-Gazinrf24"
 	"github.com/google/gousb"
 )
 

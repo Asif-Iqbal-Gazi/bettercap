@@ -9,9 +9,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bettercap/bettercap/network"
-	"github.com/bettercap/bettercap/packets"
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/packets"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"

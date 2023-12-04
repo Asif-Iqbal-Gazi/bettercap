@@ -8,9 +8,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/bettercap/bettercap/caplets"
+	"github.com/Asif-Iqbal-Gazibettercap/caplets"
 
-	"github.com/bettercap/readline"
+	"github.com/Asif-Iqbal-Gazireadline"
 
 	"github.com/evilsocket/islazy/fs"
 	"github.com/evilsocket/islazy/log"

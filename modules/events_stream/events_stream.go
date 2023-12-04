@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 
 	"github.com/evilsocket/islazy/fs"
 	"github.com/evilsocket/islazy/str"

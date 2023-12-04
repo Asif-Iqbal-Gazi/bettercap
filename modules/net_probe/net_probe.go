@@ -4,8 +4,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bettercap/bettercap/network"
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 
 	"github.com/malfunkt/iprange"
 )

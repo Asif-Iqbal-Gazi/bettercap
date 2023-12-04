@@ -6,11 +6,11 @@ import (
 	"os"
 	"strings"
 
-	"github.com/bettercap/bettercap/network"
-	"github.com/bettercap/bettercap/session"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/session"
 
-	"github.com/bettercap/bettercap/modules/net_sniff"
-	"github.com/bettercap/bettercap/modules/syn_scan"
+	"github.com/Asif-Iqbal-Gazibettercap/modules/net_sniff"
+	"github.com/Asif-Iqbal-Gazibettercap/modules/syn_scan"
 
 	"github.com/google/go-github/github"
 

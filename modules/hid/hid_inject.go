@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bettercap/bettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
 
 	"github.com/evilsocket/islazy/tui"
 

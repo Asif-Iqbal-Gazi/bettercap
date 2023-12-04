@@ -12,13 +12,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bettercap/readline"
+	"github.com/Asif-Iqbal-Gazireadline"
 
-	"github.com/bettercap/bettercap/caplets"
-	"github.com/bettercap/bettercap/core"
-	"github.com/bettercap/bettercap/firewall"
-	"github.com/bettercap/bettercap/network"
-	"github.com/bettercap/bettercap/packets"
+	"github.com/Asif-Iqbal-Gazibettercap/caplets"
+	"github.com/Asif-Iqbal-Gazibettercap/core"
+	"github.com/Asif-Iqbal-Gazibettercap/firewall"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/packets"
 
 	"github.com/evilsocket/islazy/data"
 	"github.com/evilsocket/islazy/fs"

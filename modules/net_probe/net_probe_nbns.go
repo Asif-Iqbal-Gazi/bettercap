@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/bettercap/bettercap/packets"
+	"github.com/Asif-Iqbal-Gazibettercap/packets"
 )
 
 func (mod *Prober) sendProbeNBNS(from net.IP, from_hw net.HardwareAddr, ip net.IP) {

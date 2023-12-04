@@ -5,7 +5,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/bettercap/bettercap/core"
+	"github.com/Asif-Iqbal-Gazibettercap/core"
 )
 
 type ArpTable map[string]string

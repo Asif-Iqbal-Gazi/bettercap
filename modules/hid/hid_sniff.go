@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bettercap/bettercap/network"
+	"github.com/Asif-Iqbal-Gazibettercap/network"
 
-	"github.com/bettercap/nrf24"
+	"github.com/Asif-Iqbal-Gazinrf24"
 
 	"github.com/evilsocket/islazy/str"
 	"github.com/evilsocket/islazy/tui"

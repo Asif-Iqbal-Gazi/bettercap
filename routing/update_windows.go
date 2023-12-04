@@ -1,7 +1,7 @@
 package routing
 
 import (
-	"github.com/bettercap/bettercap/core"
+	"github.com/Asif-Iqbal-Gazibettercap/core"
 	"github.com/evilsocket/islazy/str"
 	"regexp"
 	"strings"
