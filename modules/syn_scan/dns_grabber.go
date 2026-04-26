@@ -1,8 +1,9 @@
 package syn_scan
 
 import (
-	"fmt"
+	"net"
 	"regexp"
+	"strconv"
 
 	"github.com/miekg/dns"
 )
@@ -24,7 +25,7 @@ func grabChaos(addr string, q string) string {
 }
 
 func dnsGrabber(mod *SynScanner, ip string, port int) string {
-	addr := fmt.Sprintf("%s:%d", ip, port)
+	addr := net.JoinHostPort(ip, strconv.Itoa(port))
 	if v := grabChaos(addr, "version.bind."); v != "" {
 		return v
 	} else if v := grabChaos(addr, "hostname.bind."); v != "" {
