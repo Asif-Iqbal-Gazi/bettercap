@@ -43,9 +43,10 @@ func (mod *WiFiModule) getRow(station *network.Station) ([]string, bool) {
 
 	ssid := ops.Ternary(station.ESSID() == "<hidden>", tui.Dim(station.ESSID()), station.ESSID()).(string)
 
-	encryption := station.Encryption
-	if len(station.Cipher) > 0 {
-		encryption = fmt.Sprintf("%s (%s, %s)", station.Encryption, station.Cipher, station.Authentication)
+	enc, cipher, auth := station.EncryptionInfo()
+	encryption := enc
+	if len(cipher) > 0 {
+		encryption = fmt.Sprintf("%s (%s, %s)", enc, cipher, auth)
 	}
 
 	if encryption == "OPEN" || encryption == "" {
@@ -61,8 +62,10 @@ func (mod *WiFiModule) getRow(station *network.Station) ([]string, bool) {
 		}
 	}
 
-	sent := ops.Ternary(station.Sent > 0, humanize.Bytes(station.Sent), "").(string)
-	recvd := ops.Ternary(station.Received > 0, humanize.Bytes(station.Received), "").(string)
+	sentBytes := station.SentBytes()
+	recvdBytes := station.ReceivedBytes()
+	sent := ops.Ternary(sentBytes > 0, humanize.Bytes(sentBytes), "").(string)
+	recvd := ops.Ternary(recvdBytes > 0, humanize.Bytes(recvdBytes), "").(string)
 
 	include := false
 	if mod.source == "" {
@@ -114,13 +117,14 @@ func (mod *WiFiModule) getRow(station *network.Station) ([]string, bool) {
 
 		wps := ""
 		if station.HasWPS() {
-			if ver, found := station.WPS["Version"]; found {
+			wpsData := station.WPSData()
+			if ver, found := wpsData["Version"]; found {
 				wps = ver
 			} else {
 				wps = "✔"
 			}
 
-			if state, found := station.WPS["State"]; found {
+			if state, found := wpsData["State"]; found {
 				if state == "Not Configured" {
 					wps += " (not configured)"
 				}
@@ -385,8 +389,9 @@ func (mod *WiFiModule) ShowWPS(bssid string) (err error) {
 			{tui.Green("bssid"), station.BSSID()},
 		}
 
+		wpsData := station.WPSData()
 		keys := []string{}
-		for name := range station.WPS {
+		for name := range wpsData {
 			keys = append(keys, name)
 		}
 		sort.Strings(keys)
@@ -394,7 +399,7 @@ func (mod *WiFiModule) ShowWPS(bssid string) (err error) {
 		for _, name := range keys {
 			rows = append(rows, []string{
 				tui.Green(name),
-				tui.Yellow(station.WPS[name]),
+				tui.Yellow(wpsData[name]),
 			})
 		}
 

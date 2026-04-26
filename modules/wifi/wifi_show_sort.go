@@ -67,7 +67,7 @@ type ByWiFiSentSorter []*network.Station
 func (a ByWiFiSentSorter) Len() int      { return len(a) }
 func (a ByWiFiSentSorter) Swap(i, j int) { a[i], a[j] = a[j], a[i] }
 func (a ByWiFiSentSorter) Less(i, j int) bool {
-	return a[i].Sent < a[j].Sent
+	return a[i].SentBytes() < a[j].SentBytes()
 }
 
 type ByWiFiRcvdSorter []*network.Station
@@ -75,7 +75,7 @@ type ByWiFiRcvdSorter []*network.Station
 func (a ByWiFiRcvdSorter) Len() int      { return len(a) }
 func (a ByWiFiRcvdSorter) Swap(i, j int) { a[i], a[j] = a[j], a[i] }
 func (a ByWiFiRcvdSorter) Less(i, j int) bool {
-	return a[i].Received < a[j].Received
+	return a[i].ReceivedBytes() < a[j].ReceivedBytes()
 }
 
 type ByClientsSorter []*network.Station

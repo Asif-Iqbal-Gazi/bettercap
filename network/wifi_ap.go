@@ -49,9 +49,6 @@ func (ap *AccessPoint) MarshalJSON() ([]byte, error) {
 }
 
 func (ap *AccessPoint) UnmarshalJSON(raw []byte) (err error) {
-	ap.RLock()
-	defer ap.RUnlock()
-
 	var apData apJSON
 	if err = json.Unmarshal(raw, &apData); err != nil {
 		return
@@ -61,6 +58,9 @@ func (ap *AccessPoint) UnmarshalJSON(raw []byte) (err error) {
 	for _, c := range apData.Clients {
 		clients[c.HwAddress] = c
 	}
+
+	ap.Lock()
+	defer ap.Unlock()
 
 	ap.Station = apData.Station
 	ap.clients = clients

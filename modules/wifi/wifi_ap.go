@@ -3,6 +3,7 @@ package wifi
 import (
 	"errors"
 	"net"
+	"sync/atomic"
 	"time"
 
 	"github.com/bettercap/bettercap/v2/network"
@@ -34,15 +35,14 @@ func (mod *WiFiModule) startAp() error {
 	// we need channel hopping and packet injection for this
 	if !mod.Running() {
 		return errNoRecon
-	} else if mod.apRunning {
+	} else if !atomic.CompareAndSwapInt32(&mod.apRunning, 0, 1) {
 		return session.ErrAlreadyStarted(mod.Name())
 	}
 
+	mod.writes.Add(1)
 	go func() {
-		mod.apRunning = true
-		defer func() {
-			mod.apRunning = false
-		}()
+		defer mod.writes.Done()
+		defer atomic.StoreInt32(&mod.apRunning, 0)
 
 		enc := tui.Yellow("WPA2")
 		if !mod.apConfig.Encryption {
@@ -55,9 +55,6 @@ func (mod *WiFiModule) startAp() error {
 			enc)
 
 		for seqn := uint16(0); mod.Running(); seqn++ {
-			mod.writes.Add(1)
-			defer mod.writes.Done()
-
 			if err, pkt := packets.NewDot11Beacon(mod.apConfig, seqn); err != nil {
 				mod.Error("could not create beacon packet: %s", err)
 			} else {

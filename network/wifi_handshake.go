@@ -37,6 +37,23 @@ func (h *Handshake) SetBeacon(pkt gopacket.Packet) {
 	}
 }
 
+// ReplaceBeacon overwrites the stored beacon packet, treating it as
+// fresh unsaved material for the next handshake export.
+func (h *Handshake) ReplaceBeacon(pkt gopacket.Packet) {
+	h.Lock()
+	defer h.Unlock()
+
+	h.Beacon = pkt
+	h.unsaved = append(h.unsaved, pkt)
+}
+
+// BeaconPacket returns the stored beacon packet (or nil) under a read lock.
+func (h *Handshake) BeaconPacket() gopacket.Packet {
+	h.RLock()
+	defer h.RUnlock()
+	return h.Beacon
+}
+
 func (h *Handshake) AddAndGetPMKID(pkt gopacket.Packet) []byte {
 	h.AddFrame(0, pkt)
 

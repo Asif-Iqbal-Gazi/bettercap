@@ -88,9 +88,9 @@ func (mod *WiFiModule) discoverHandshakes(radiotap *layers.RadioTap, dot11 *laye
 			//https://github.com/ZerBea/hcxtools/issues/92
 			//https://github.com/bettercap/bettercap/issues/592
 
-			if ap.Station.Handshake.Beacon != nil {
+			if beacon := ap.Station.Handshake.BeaconPacket(); beacon != nil {
 				mod.Debug("adding beacon frame to handshake for %s", apMac)
-				station.Handshake.AddFrame(1, ap.Station.Handshake.Beacon)
+				station.Handshake.AddFrame(1, beacon)
 			}
 
 		} else if !key.Install && !key.KeyACK && key.KeyMIC && !allZeros(key.Nonce) {

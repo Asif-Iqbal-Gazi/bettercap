@@ -10,6 +10,7 @@ import (
 	"sort"
 	"strconv"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/bettercap/bettercap/v2/modules/utils"
@@ -48,7 +49,7 @@ type WiFiModule struct {
 	shakesAggregate     bool
 	skipBroken          bool
 	pktSourceChan       chan gopacket.Packet
-	pktSourceChanClosed bool
+	pktSourceChanClosed atomic.Bool
 	deauthSkip          []net.HardwareAddr
 	deauthSilent        bool
 	deauthOpen          bool
@@ -61,7 +62,7 @@ type WiFiModule struct {
 	fakeAuthSilent      bool
 	filterProbeSTA      *regexp.Regexp
 	filterProbeAP       *regexp.Regexp
-	apRunning           bool
+	apRunning           int32
 	showManuf           bool
 	apConfig            packets.Dot11ApConfig
 	probeMac            net.HardwareAddr
@@ -85,7 +86,7 @@ func NewWiFiModule(s *session.Session) *WiFiModule {
 		hopChanges:      make(chan bool),
 		ap:              nil,
 		skipBroken:      true,
-		apRunning:       false,
+		apRunning:       0,
 		deauthSkip:      []net.HardwareAddr{},
 		deauthSilent:    false,
 		deauthOpen:      false,
@@ -508,15 +509,15 @@ func NewWiFiModule(s *session.Session) *WiFiModule {
 	return mod
 }
 
-func (mod WiFiModule) Name() string {
+func (mod *WiFiModule) Name() string {
 	return "wifi"
 }
 
-func (mod WiFiModule) Description() string {
+func (mod *WiFiModule) Description() string {
 	return "A module to monitor and perform wireless attacks on 802.11."
 }
 
-func (mod WiFiModule) Author() string {
+func (mod *WiFiModule) Author() string {
 	return "Simone Margaritelli <evilsocket@gmail.com> && Gianluca Braga <matrix86@gmail.com>"
 }
 
@@ -697,16 +698,14 @@ func (mod *WiFiModule) updateInfo(dot11 *layers.Dot11, packet gopacket.Packet) {
 			// Prevent this behaviour by not downgrading the encryption.
 			bssid := dot11.Address3.String()
 			if station, found := mod.Session.WiFi.Get(bssid); found && station.IsOpen() {
-				station.Encryption = enc
-				station.Cipher = cipher
-				station.Authentication = auth
+				station.SetEncryption(enc, cipher, auth)
 			}
 		}
 
 		if ok, bssid, info := packets.Dot11ParseWPS(packet, dot11); ok {
 			if station, found := mod.Session.WiFi.Get(bssid.String()); found {
 				for name, value := range info {
-					station.WPS[name] = value
+					station.SetWPS(name, value)
 				}
 			}
 		}
@@ -720,16 +719,16 @@ func (mod *WiFiModule) updateStats(dot11 *layers.Dot11, packet gopacket.Packet) 
 
 		dst := dot11.Address1.String()
 		if ap, found := mod.Session.WiFi.Get(dst); found {
-			ap.Received += bytes
+			ap.Station.AddReceived(bytes)
 		} else if sta, found := mod.Session.WiFi.GetClient(dst); found {
-			sta.Received += bytes
+			sta.AddReceived(bytes)
 		}
 
 		src := dot11.Address2.String()
 		if ap, found := mod.Session.WiFi.Get(src); found {
-			ap.Sent += bytes
+			ap.Station.AddSent(bytes)
 		} else if sta, found := mod.Session.WiFi.GetClient(src); found {
-			sta.Sent += bytes
+			sta.AddSent(bytes)
 		}
 	}
 }
@@ -788,7 +787,7 @@ func (mod *WiFiModule) Start() error {
 			}
 		}
 
-		mod.pktSourceChanClosed = true
+		mod.pktSourceChanClosed.Store(true)
 	})
 
 	return nil
@@ -799,7 +798,7 @@ func (mod *WiFiModule) forcedStop() error {
 
 	return mod.SetRunning(false, func() {
 		// signal the main for loop we want to exit
-		if !mod.pktSourceChanClosed {
+		if !mod.pktSourceChanClosed.Load() {
 			mod.pktSourceChan <- nil
 		}
 		// close the pcap handle to make the main for exit
@@ -814,7 +813,7 @@ func (mod *WiFiModule) Stop() error {
 		// wait any pending write operation
 		mod.writes.Wait()
 		// signal the main for loop we want to exit
-		if !mod.pktSourceChanClosed {
+		if !mod.pktSourceChanClosed.Load() {
 			mod.pktSourceChan <- nil
 		}
 		mod.reads.Wait()

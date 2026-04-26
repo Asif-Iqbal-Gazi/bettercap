@@ -5,6 +5,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"sync"
+	"sync/atomic"
 )
 
 var (
@@ -23,6 +25,67 @@ type Station struct {
 	Authentication string            `json:"authentication"`
 	WPS            map[string]string `json:"wps"`
 	Handshake      *Handshake        `json:"-"`
+
+	// guards Encryption/Cipher/Authentication and the WPS map.
+	// Sent/Received use sync/atomic for lock-free counter updates.
+	mu sync.RWMutex
+}
+
+// AddSent atomically increases the bytes-sent counter.
+func (s *Station) AddSent(n uint64) {
+	atomic.AddUint64(&s.Sent, n)
+}
+
+// AddReceived atomically increases the bytes-received counter.
+func (s *Station) AddReceived(n uint64) {
+	atomic.AddUint64(&s.Received, n)
+}
+
+// SentBytes returns the current bytes-sent counter.
+func (s *Station) SentBytes() uint64 {
+	return atomic.LoadUint64(&s.Sent)
+}
+
+// ReceivedBytes returns the current bytes-received counter.
+func (s *Station) ReceivedBytes() uint64 {
+	return atomic.LoadUint64(&s.Received)
+}
+
+// SetEncryption updates encryption-related fields under a write lock.
+func (s *Station) SetEncryption(encryption, cipher, authentication string) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.Encryption = encryption
+	s.Cipher = cipher
+	s.Authentication = authentication
+}
+
+// EncryptionInfo returns a consistent snapshot of encryption/cipher/auth.
+func (s *Station) EncryptionInfo() (encryption, cipher, authentication string) {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.Encryption, s.Cipher, s.Authentication
+}
+
+// SetWPS sets a WPS info entry under a write lock.
+func (s *Station) SetWPS(name, value string) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	if s.WPS == nil {
+		s.WPS = make(map[string]string)
+	}
+	s.WPS[name] = value
+}
+
+// WPSData returns a copy of the WPS info map under a read lock.
+func (s *Station) WPSData() map[string]string {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	out := make(map[string]string, len(s.WPS))
+	for k, v := range s.WPS {
+		out[k] = v
+	}
+	return out
 }
 
 func cleanESSID(essid string) string {
@@ -48,7 +111,7 @@ func NewStation(essid, bssid string, frequency int, rssi int8) *Station {
 	}
 }
 
-func (s Station) BSSID() string {
+func (s *Station) BSSID() string {
 	return s.HwAddress
 }
 

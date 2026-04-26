@@ -13,9 +13,9 @@ func (mod *WiFiModule) isFakeAuthSilent() bool {
 	if err, is := mod.BoolParam("wifi.fake_auth.silent"); err != nil {
 		mod.Warning("%v", err)
 	} else {
-		mod.csaSilent = is
+		mod.fakeAuthSilent = is
 	}
-	return mod.csaSilent
+	return mod.fakeAuthSilent
 }
 
 func (mod *WiFiModule) sendFakeAuthPacket(bssid, client net.HardwareAddr) {

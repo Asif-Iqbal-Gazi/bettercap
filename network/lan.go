@@ -43,8 +43,11 @@ func NewLAN(iface, gateway *Endpoint, aliases *data.UnsortedKV, newcb EndpointNe
 }
 
 func (l *LAN) MarshalJSON() ([]byte, error) {
+	l.Lock()
+	defer l.Unlock()
+
 	doc := lanJSON{
-		Hosts: make([]*Endpoint, 0),
+		Hosts: make([]*Endpoint, 0, len(l.hosts)),
 	}
 
 	for _, h := range l.hosts {

@@ -3,6 +3,7 @@ package wifi
 import (
 	"bytes"
 	"net"
+	"sync/atomic"
 	"time"
 
 	"github.com/bettercap/bettercap/v2/network"
@@ -56,7 +57,7 @@ func (mod *WiFiModule) discoverAccessPoints(radiotap *layers.RadioTap, dot11 *la
 		from := dot11.Address3
 
 		// skip stuff we're sending
-		if mod.apRunning && bytes.Equal(from, mod.apConfig.BSSID) {
+		if atomic.LoadInt32(&mod.apRunning) == 1 && bytes.Equal(from, mod.apConfig.BSSID) {
 			return
 		}
 
@@ -74,7 +75,7 @@ func (mod *WiFiModule) discoverAccessPoints(radiotap *layers.RadioTap, dot11 *la
 				if ap, isNew := mod.Session.WiFi.AddIfNew(ssid, bssid, frequency, radiotap.DBMAntennaSignal); !isNew {
 					//set beacon packet on the access point station.
 					//This is for it to be included in the saved handshake file for wifi.assoc
-					ap.Station.Handshake.Beacon = packet
+					ap.Station.Handshake.ReplaceBeacon(packet)
 					ap.EachClient(func(mac string, station *network.Station) {
 						station.Handshake.SetBeacon(packet)
 					})
